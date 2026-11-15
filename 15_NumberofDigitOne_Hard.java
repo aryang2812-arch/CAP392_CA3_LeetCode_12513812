@@ -3,25 +3,31 @@ class Solution {
 
     public int countDigitOne(int n) {
 
-        long count = 0;
+        int count = 0;
 
-        for (long factor = 1; factor <= n; factor *= 10) {
+        for (int i = 1; i <= n; i++) {
 
-            long lower = n % factor;
-            long curr = (n / factor) % 10;
-            long higher = n / (factor * 10);
-
-            if (curr == 0) {
-                count += higher * factor;
-            }
-            else if (curr == 1) {
-                count += higher * factor + lower + 1;
-            }
-            else {
-                count += (higher + 1) * factor;
-            }
+            count += countOnes(i);
         }
 
-        return (int) count;
+        return count;
+    }
+
+    public int countOnes(int num) {
+
+        int count = 0;
+
+        while (num > 0) {
+
+            int digit = num % 10;
+
+            if (digit == 1) {
+                count++;
+            }
+
+            num = num / 10;
+        }
+
+        return count;
     }
 }
