@@ -7,12 +7,12 @@ class Solution {
         int sign = 1;
         long num = 0;
 
-        // Skip leading spaces
+        
         while (i < n && s.charAt(i) == ' ') {
             i++;
         }
 
-        // Check sign
+        
         if (i < n && s.charAt(i) == '-') {
             sign = -1;
             i++;
@@ -21,7 +21,7 @@ class Solution {
             i++;
         }
 
-        // Process digits
+        
         while (i < n && s.charAt(i) >= '0' &&
                s.charAt(i) <= '9') {
 
